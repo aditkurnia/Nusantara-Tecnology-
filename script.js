@@ -8,6 +8,10 @@ let namaSebelumnya = ""; // Variabel untuk menyimpan nama sebelumnya
 const loreOptions = [
   { teks: "Esempeh", gambar: "esempeh.jpg", deskripsi: "Bocah puber yang suka jokes politik padahal ngerti aja enggak😂. Selain itu lore ini juga penikmat konten brainrot. seperti skipidi toilet, gyatt, sigma, dll." },
   { teks: "Penyelam Handal", gambar: "penyelam.jpg", deskripsi: "Menyelam akun media sosial seseorang sampai inti bumi." },
+    { teks: "Koboy Krah Krah", gambar: "koboy.jpg", deskripsi: "Kamu adalah koboy, tugasmu adalah memberikan bunga ke akun seseorang. sayang sekali lore ini sudah punah akibat di benned oleh seorang moster bernama Mark" },
+  { teks: "NPC", gambar: "npc.jpg", deskripsi: "Kamu adalah hanyalah pelengakap. itu saja" },
+    { teks: "Tukang Share Meme", gambar: "tsm.jpg", deskripsi: "Tugas mu adalah membahagiakan para pengikut/fl mu dengan cara mengshare meme. meskipun kamu tidak pandai membuat meme" },
+  
   // ... tambahkan opsi lore lainnya
 ];
 
