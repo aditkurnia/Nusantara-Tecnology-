@@ -3,33 +3,40 @@ const mulaiButton = document.getElementById('mulai');
 const hasilDiv = document.getElementById('hasil');
 const loadingDiv = document.getElementById('loading');
 let clickCount = 0;
-let namaSebelumnya = ""; // Variabel untuk menyimpan nama sebelumnya
+let namaSebelumnya = ""; 
 
 const loreOptions = [
   { teks: "Esempeh", gambar: "esempeh.jpg", deskripsi: "Bocah puber yang suka jokes politik padahal ngerti aja enggak😂. Selain itu lore ini juga penikmat konten brainrot. seperti skipidi toilet, gyatt, sigma, dll." },
   { teks: "Penyelam Handal", gambar: "penyelam.jpg", deskripsi: "Menyelam akun media sosial seseorang sampai inti bumi." },
     { teks: "Koboy Krah Krah", gambar: "koboy.jpg", deskripsi: "Kamu adalah koboy, tugasmu adalah memberikan bunga ke akun seseorang. sayang sekali lore ini sudah punah akibat di benned oleh seorang moster bernama Mark" },
-  { teks: "NPC", gambar: "npc.jpg", deskripsi: "Kamu adalah hanyalah pelengakap. itu saja" },
+  { teks: "NPC", gambar: "npc.jpg", deskripsi: "Kamu hanyalah pelengakap di dunia ini. itu saja" },
     { teks: "Tukang Share Meme", gambar: "tsm.jpg", deskripsi: "Tugas mu adalah membahagiakan para pengikut/fl mu dengan cara mengshare meme. meskipun kamu tidak pandai membuat meme" },
+    { teks: "Artis (Sepuh) Pesbuk", gambar:"artis.jpg", deskripsi: "Kamu adalah aris, yang memiliki belasan pengikut dan setip post mendapatkan ratusan bahkan ribuan like. (lore inu juga suka merendah sampai inti bumi)" },
+      { teks: "Tukang Drama", gambar: "drama.jpg", deskripsi: "Lore Tukang Drama merupakan istilah untuk orang yang gemar melebih-lebihkan masalah atau menciptakan masalah agar mendapat perhatian. Contonya Miya Desu" },
+        { teks: "Tukang Gorengan Rek", gambar: "Rek.jpg", deskripsi: "Musuh alami Tukang Drama. lore ini bertugas menyebarkan drama dan menggorengnya sampai klarifikasi/tutup akun" },
+          { teks: "Kurator Meme", gambar: "kurator.jpg", deskripsi: "lore ini merupakan lore yang menghibur dengan meme buatannya lore ini juga ada memiliki lore tambahan yaitu artis pesbuk, ketika meme buatanya terkenal. Contoh: Renkardasi" },
+            { teks: "badut", gambar: "badut.jpg", deskripsi: "Lore ini berbagai macam. Sama Dengan Tukang Drama atau lore ini juga bisa jadi tukang lawak ke gebetannya" },
   
-  // ... tambahkan opsi lore lainnya
+
 ];
 
 mulaiButton.addEventListener('click', () => {
-  const nama = namaInput.value.trim(); 
+  const nama = namaInput.value.trim();
 
   if (!nama) {
     alert("Masukkan nama kamu dulu!");
     return;
   }
 
-  // Reset clickCount jika nama berbeda dari sebelumnya
-  if (nama !== namaSebelumnya) {
-    clickCount = 0;
+  const namaNormal = nama.toLowerCase().replace(/\s+/g, ''); 
+
+  if (namaNormal === namaSebelumnya) {
+    alert("Kamu sudah mencoba dengan nama ini!");
+    return;
   }
 
   if (clickCount >= 1) {
-    alert("Kamu sudah mencoba sekali kali! Gunakan nama lain");
+    alert("Kamu sudah mencoba sekali! Gunakan nama lain");
     return;
   }
 
@@ -40,7 +47,7 @@ mulaiButton.addEventListener('click', () => {
     const randomIndex = Math.floor(Math.random() * loreOptions.length);
     const lore = loreOptions[randomIndex];
 
-    // Tampilkan nama user dalam hasil
+
     hasilDiv.innerHTML = `
       <h2>${nama}, kamu adalah ${lore.teks}</h2>
       <img src="${lore.gambar}" alt="${lore.teks}">
@@ -50,11 +57,11 @@ mulaiButton.addEventListener('click', () => {
     loadingDiv.style.display = 'none';
     hasilDiv.style.display = 'block';
     clickCount++;
-    namaSebelumnya = nama; // Simpan nama yang baru saja digunakan
+    namaSebelumnya = nama;
   }, 1000); 
 });
 
-// Tambahkan event listener untuk mereset clickCount saat nama diubah
+
 namaInput.addEventListener('input', () => {
-  clickCount = 0; // Reset clickCount setiap kali input nama berubah
+  clickCount = 0; 
 });
