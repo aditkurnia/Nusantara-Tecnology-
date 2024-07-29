@@ -28,15 +28,16 @@ mulaiButton.addEventListener('click', () => {
     return;
   }
 
-  const namaNormal = nama.toLowerCase().replace(/\s+/g, ''); 
+  // Hapus semua spasi dari nama sebelum membandingkan
+  const namaTanpaSpasi = nama.replace(/\s/g, '');
 
-  if (namaNormal === namaSebelumnya) {
-    alert("Kamu sudah mencoba dengan nama ini!");
-    return;
+  // Reset clickCount hanya jika nama tanpa spasi berbeda dari sebelumnya
+  if (namaTanpaSpasi !== namaSebelumnya) {
+    clickCount = 0;
   }
 
   if (clickCount >= 1) {
-    alert("Kamu sudah mencoba sekali! Gunakan nama lain");
+    alert("Kamu sudah mencoba sekali, gunakan nama lain");
     return;
   }
 
@@ -47,7 +48,6 @@ mulaiButton.addEventListener('click', () => {
     const randomIndex = Math.floor(Math.random() * loreOptions.length);
     const lore = loreOptions[randomIndex];
 
-
     hasilDiv.innerHTML = `
       <h2>${nama}, kamu adalah ${lore.teks}</h2>
       <img src="${lore.gambar}" alt="${lore.teks}">
@@ -57,11 +57,6 @@ mulaiButton.addEventListener('click', () => {
     loadingDiv.style.display = 'none';
     hasilDiv.style.display = 'block';
     clickCount++;
-    namaSebelumnya = nama;
-  }, 1000); 
-});
-
-
-namaInput.addEventListener('input', () => {
-  clickCount = 0; 
+    namaSebelumnya = namaTanpaSpasi;
+  }, 1000);
 });
