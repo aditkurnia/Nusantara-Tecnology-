@@ -1,20 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta name="google-adsense-account" content="ca-pub-9941737096996174">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Apa Rore Kamu di Pesbuk?</title>
-  <link rel="stylesheet" href="style.css">
+<title>Hitung Mundur</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white; /* Teks putih */
+    background-color: #222; /* Latar belakang gelap */
+  }
+
+  #video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Pastikan video di belakang elemen lain */
+  }
+
+  #info {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ddd; /* Abu-abu terang untuk keterangan */
+  }
+
+  #countdown {
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+    animation: countdownAnimation 1s infinite;
+  }
+
+  #message {
+    font-size: 18px;
+    color: #ddd;
+    text-align: center;
+    max-width: 80%;
+  }
+
+  @keyframes countdownAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+</style>
 </head>
 <body>
-    <h1>Apa Lore Kamu di Pesbuk?</h1>
-  <input type="text" id="nama" placeholder="Masukkan nama kamu">
-  <button id="mulai">Mulai</button>
-  <div id="loading">Loading...</div> 
-  <div id="hasil"></div>
+  <video id="video-background" autoplay loop muted>
+    <source src="bg.mp4" type="video/mp4"></source>
+  </video>
 
-  <script src="script.js"></script>
+  <div id="info">Kamu Akan otomatis dialihkan ke rolepesbuk</div>
+  <div id="countdown"></div>
+  <div id="message">Akibat Kegoblokan Ane pembuat web ini yang salah mengetik. yang seharusnya role malah mengetik Lore 😂 dan gobloknya dari codingan sampai domain. awokawok goblok banget dah</div>
+
+  <script>
+    let count = 3;
+    const countdownElem = document.getElementById("countdown");
+    const countdown = setInterval(() => {
+      countdownElem.textContent = count;
+      if (count === 0) {
+        clearInterval(countdown);
+        window.location.href = "https://www.rolepesbuk.com"; // Ganti dengan URL rolepesbuk
+      }
+      count--;
+    }, 1000);
+  </script>
 </body>
 </html>
